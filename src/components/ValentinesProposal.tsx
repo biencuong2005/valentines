@@ -125,45 +125,52 @@ export default function ValentinesProposal() {
         {step === 3 && (
           <motion.div
             key="step-3"
-            className="relative z-50 text-center flex flex-col items-center justify-center px-4"
+            // z-50 đảm bảo nội dung nổi lên trên pháo hoa
+            className="relative z-50 text-4xl font-semibold mb-4 flex flex-col justify-center items-center"
+            style={playfairDisplay.style} // Sử dụng .style thay vì .className nếu cần áp dụng font triệt để
             transition={{ duration: 1 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <h2 className={`text-4xl md:text-5xl font-bold text-pink-600 mb-8 ${playfairDisplay.className}`}>
-              Anh cũm thíc nhắm hẹ hẹ, lớp u moazz 💕
-            </h2>
+            <span className="mb-4">Anh cũm thíc nhắm hẹ hẹ, lớp u moazz 💕</span>
             
             <a  
               href="https://bcmisavalentines2026.vercel.app/"  
               target="_blank"  
               rel="noopener noreferrer"
-              className="mt-4 mb-10 px-10 py-5 bg-pink-500 text-white text-2xl font-black rounded-full shadow-[0_0_20px_rgba(236,72,153,0.5)] animate-bounce hover:bg-pink-600 transition-colors cursor-pointer relative z-50 pointer-events-auto"
+              // Thêm cursor-pointer để hiện bàn tay khi hover
+              className="mt-6 px-10 py-4 bg-white text-pink-500 border-2 border-pink-500 rounded-full font-bold hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-md animate-bounce relative z-50 pointer-events-auto cursor-pointer text-2xl"
             >
               Cho em bé nè! 💌
             </a>
 
-            <div className="relative w-[250px] h-[250px]">
-                <Image
-                  src="/hamster_jumping.gif"
-                  alt="Happy Hamster"
-                  fill
-                  className="object-contain"
-                  unoptimized
-                />
-            </div>
+            <Image
+              src="/hamster_jumping.gif"
+              alt="Hamster Feliz"
+              width={200}
+              height={200}
+              className="mt-10" // Tách xa cái nút một chút
+              unoptimized
+            />
           </motion.div>
         )}
       </AnimatePresence>
 
       {showFireworks && (
+        // pointer-events-none cực kỳ quan trọng để click xuyên qua pháo hoa
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Fireworks
-            options={{ autoresize: true, opacity: 0.5 }}
-            style={{ width: "100%", height: "100%" }}
+            options={{
+              autoresize: true,
+            }}
+            style={{
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+            }}
           />
         </div>
       )}
-    </div>
-  );
-}
