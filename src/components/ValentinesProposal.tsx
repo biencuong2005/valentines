@@ -169,21 +169,25 @@ export default function ValentinesProposal() {
         {step === 3 && (
           <motion.div
             key="step-3"
-            className={`text-4xl font-semibold mb-4 flex flex-col justify-center items-center ${playfairDisplay.className}`}
+            // Thêm z-50 để đảm bảo nội dung này nằm trên pháo hoa
+            className={`relative z-50 text-4xl font-semibold mb-4 flex flex-col justify-center items-center ${playfairDisplay.className}`}
             transition={{ duration: 1 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             Anh cũm thíc nhắm hẹ hẹ, lớp u moazz 💕
-            <a 
-  href="https://bcmisavalentines2026.vercel.app/" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="mt-6 px-4 py-2 bg-white text-pink-500 border-2 border-pink-500 rounded-full font-bold hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-md animate-bounce"
->
-  Cho em bé nè! 💌
-</a>
+            
+            <a  
+              href="https://bcmisavalentines2026.vercel.app/"  
+              target="_blank"  
+              rel="noopener noreferrer"
+              // Thêm pointer-events-auto để chắc chắn nó nhận click
+              className="mt-6 px-4 py-2 bg-white text-pink-500 border-2 border-pink-500 rounded-full font-bold hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-md animate-bounce relative z-50 pointer-events-auto"
+            >
+              Cho em bé nè! 💌
+            </a>
+
             <Image
               src="/hamster_jumping.gif"
               alt="Hamster Feliz"
@@ -196,7 +200,8 @@ export default function ValentinesProposal() {
       </AnimatePresence>
 
       {showFireworks && (
-        <div className="absolute w-full h-full">
+        // Thêm z-0 để pháo hoa làm nền ở dưới cùng
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <Fireworks
             options={{
               autoresize: true,
@@ -204,13 +209,7 @@ export default function ValentinesProposal() {
             style={{
               width: "100%",
               height: "100%",
-              position: "absolute",
-              top: 0,
-              left: 0,
             }}
           />
         </div>
       )}
-    </div>
-  );
-}
