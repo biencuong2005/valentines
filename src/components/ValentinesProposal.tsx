@@ -176,7 +176,14 @@ export default function ValentinesProposal() {
             exit={{ opacity: 0 }}
           >
             Anh cũm thíc nhắm hẹ hẹ, lớp u moazz 💕
-            <p className="text-sm mt-4">Đọc tui!!! 💌</p>
+            <a 
+  href="LINK_WEB_DOC_THU_CUA_BAN_O_DAY" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="mt-6 px-4 py-2 bg-white text-pink-500 border-2 border-pink-500 rounded-full font-bold hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-md animate-bounce"
+>
+  Cho em bé nè! 💌
+</a>
             <Image
               src="/hamster_jumping.gif"
               alt="Hamster Feliz"
