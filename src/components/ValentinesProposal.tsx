@@ -50,7 +50,7 @@ const images = [
 ];
 
 export default function ValentinesProposal() {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(3);
   const [position, setPosition] = useState<{
     top: string;
     left: string;
